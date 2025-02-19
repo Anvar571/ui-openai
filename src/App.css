@@ -17,77 +17,124 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #1e1e1e;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  color: white;
 }
 
 .chat-container {
-  width: 400px;
-  height: 500px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 1100px;
+  height: 80vh;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.chat-title {
+  text-align: center;
+  font-size: 20px;
+  background: #3a3a3a;
+  padding: 15px;
+  border-bottom: 2px solid #444;
 }
 
 .chat-box {
   flex: 1;
-  padding: 10px;
+  padding: 15px;
   overflow-y: auto;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #555 #2c2c2c;
+}
+
+.message {
+  max-width: 75%;
+  padding: 10px;
+  border-radius: 8px;
+  word-wrap: break-word;
+}
+
+.user {
+  color: white;
+  align-self: flex-end;
+}
+
+.bot {
+  color: white;
+  align-self: flex-start;
+  font-size: smaller;
 }
 
 .input-container {
   display: flex;
-  padding: 10px;
-  background: #f9f9f9;
+  padding: 15px;
+  background: #3a3a3a;
+  border-top: 2px solid #444;
 }
 
 input {
   flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  border: none;
   border-radius: 5px;
+  background: #555;
+  color: white;
+  outline: none;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 12px 20px;
   background: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   margin-left: 10px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 button:hover {
   background: #0056b3;
 }
 
-.message {
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 5px;
-  max-width: 80%;
-}
-
-.user {
-  background: #007bff;
+.typing {
+  display: inline-block;
+  font-size: 14px;
   color: white;
-  align-self: flex-end;
-}
-
-.bot {
-  background: #ddd;
-  color: black;
+  letter-spacing: 1px;
   align-self: flex-start;
 }
 
+.typing::after {
+  content: " .";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0% {
+      content: " .";
+  }
+  25% {
+      content: " ..";
+  }
+  50% {
+      content: " ...";
+  }
+  75% {
+      content: " ....";
+  }
+  100% {
+      content: " ";
+  }
+}
