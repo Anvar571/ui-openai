@@ -14,7 +14,7 @@ function App() {
         setMessages((prev) => [...prev, userMessage, { sender: "bot", text: "...", loading: true }]);
 
         try {
-            const response = await axios.post("https://open-ai-yns3.onrender.com", {
+            const response = await axios.post("https://open-ai-yns3.onrender.com/chat", {
                 message: input,
             });
 
